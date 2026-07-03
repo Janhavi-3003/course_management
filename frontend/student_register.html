@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudySync — Student Registration</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo"><span class="logo-badge">S</span>StudySync</a>
+  <a href="role.html" class="back-link">← Back</a>
+</nav>
+
+<div class="page-center">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="logo-badge">S</div>
+      <h2>Create Student Account</h2>
+      <p>Sign up to start enrolling in courses</p>
+    </div>
+
+    <div id="reg-banner" class="banner bad"></div>
+
+    <form id="register-form" novalidate>
+      <div class="field" id="field-name">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Asha Mehta">
+        <p class="error-msg">Enter your full name.</p>
+      </div>
+
+      <div class="field" id="field-email">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@school.edu">
+        <p class="error-msg">Enter a valid email address.</p>
+      </div>
+
+      <div class="field" id="field-roll">
+        <label for="rollNo">Roll Number / Student ID</label>
+        <input type="text" id="rollNo" name="rollNo" placeholder="e.g. CS21B045">
+        <p class="error-msg">Enter your roll number or student ID.</p>
+      </div>
+
+      <div class="field" id="field-password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters">
+        <p class="hint">Use 8+ characters with a number.</p>
+        <p class="error-msg">Password must be at least 8 characters and include a number.</p>
+      </div>
+
+      <div class="field" id="field-confirm">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" placeholder="Re-enter your password">
+        <p class="error-msg">Passwords don't match.</p>
+      </div>
+
+      <button type="submit" class="btn btn-solid btn-block" id="reg-submit">Create Account</button>
+    </form>
+
+    <p class="form-foot">Already registered? <a href="student_login.html">Sign in</a></p>
+  </div>
+</div>
+
+<footer>© 2026 StudySync. Built for students who keep up.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
