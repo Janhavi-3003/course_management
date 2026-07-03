@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudySync — Browse Courses</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="logo"><span class="logo-badge">S</span>StudySync</a>
+  <div class="navbar-right">
+    <a href="notifications.html" class="nav-icon-btn">🔔<span class="badge"></span></a>
+    <a href="my-courses.html" class="nav-link">My Courses</a>
+    <div class="avatar">A</div>
+  </div>
+</nav>
+
+<div style="background:var(--navy);padding:36px 48px 32px;">
+  <p style="color:#BBD6F2;font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;margin-bottom:8px;">EXPLORE</p>
+  <h1 style="color:#fff;font-size:28px;margin-bottom:16px;">Browse All Courses</h1>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <input id="searchInput" type="text" placeholder="🔍  Search courses, topics, instructors..." style="flex:1;min-width:260px;padding:11px 16px;border-radius:6px;border:none;font-size:14px;outline:none;">
+    <select id="catFilter" style="padding:11px 14px;border-radius:6px;border:none;font-size:14px;background:#fff;outline:none;cursor:pointer;">
+      <option value="">All Categories</option>
+      <option>Web Development</option>
+      <option>Data Science</option>
+      <option>Design</option>
+      <option>Cloud</option>
+      <option>Mobile</option>
+      <option>Database</option>
+    </select>
+    <select id="levelFilter" style="padding:11px 14px;border-radius:6px;border:none;font-size:14px;background:#fff;outline:none;cursor:pointer;">
+      <option value="">All Levels</option>
+      <option>Beginner</option>
+      <option>Intermediate</option>
+      <option>Advanced</option>
+    </select>
+  </div>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:30px 24px 60px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+    <p style="font-size:14px;color:var(--text-muted);" id="countLabel">Showing 9 courses</p>
+    <div style="display:flex;gap:8px;">
+      <span class="pill pill-primary" style="cursor:pointer;">All</span>
+      <span class="pill pill-success" style="cursor:pointer;">Free</span>
+      <span class="pill" style="background:var(--border);cursor:pointer;">Trending 🔥</span>
+    </div>
+  </div>
+
+  <div class="courses-grid" id="coursesGrid">
+
+    <div class="course-card" data-cat="Web Development" data-level="Intermediate">
+      <div class="course-thumb" style="background:#EEF2FF;">📱</div>
+      <div class="course-body">
+        <span class="course-tag tag-blue">Web Development</span>
+        <h3>Full Stack Web Development</h3>
+        <div class="course-meta">👤 Arjun Kumar &nbsp;·&nbsp; 42 lessons &nbsp;·&nbsp; ⭐ 4.8</div>
+        <div class="course-meta">🕒 24h &nbsp;·&nbsp; Intermediate</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹1,999</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Data Science" data-level="Beginner">
+      <div class="course-thumb" style="background:#F0FDF4;">🐍</div>
+      <div class="course-body">
+        <span class="course-tag tag-green">Data Science</span>
+        <h3>Python for Data Science</h3>
+        <div class="course-meta">👤 Priya Nair &nbsp;·&nbsp; 36 lessons &nbsp;·&nbsp; ⭐ 4.7</div>
+        <div class="course-meta">🕒 18h &nbsp;·&nbsp; Beginner</div>
+      </div>
+      <div class="course-footer"><span class="course-price free">FREE</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Design" data-level="Beginner">
+      <div class="course-thumb" style="background:#FFF7ED;">🎨</div>
+      <div class="course-body">
+        <span class="course-tag tag-orange">Design</span>
+        <h3>UI/UX Design Fundamentals</h3>
+        <div class="course-meta">👤 Sneha Reddy &nbsp;·&nbsp; 28 lessons &nbsp;·&nbsp; ⭐ 4.9</div>
+        <div class="course-meta">🕒 14h &nbsp;·&nbsp; Beginner</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹1,499</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Web Development" data-level="Advanced">
+      <div class="course-thumb" style="background:#F3F0FF;">⚛️</div>
+      <div class="course-body">
+        <span class="course-tag tag-purple">Web Development</span>
+        <h3>React JS — From Zero to Hero</h3>
+        <div class="course-meta">👤 Vikram Singh &nbsp;·&nbsp; 50 lessons &nbsp;·&nbsp; ⭐ 4.9</div>
+        <div class="course-meta">🕒 30h &nbsp;·&nbsp; Advanced</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹2,499</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Database" data-level="Beginner">
+      <div class="course-thumb" style="background:#FEF7E0;">🗄️</div>
+      <div class="course-body">
+        <span class="course-tag tag-warn">Database</span>
+        <h3>SQL & Database Design</h3>
+        <div class="course-meta">👤 Meena Iyer &nbsp;·&nbsp; 24 lessons &nbsp;·&nbsp; ⭐ 4.6</div>
+        <div class="course-meta">🕒 12h &nbsp;·&nbsp; Beginner</div>
+      </div>
+      <div class="course-footer"><span class="course-price free">FREE</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Cloud" data-level="Intermediate">
+      <div class="course-thumb" style="background:#E8F1FB;">☁️</div>
+      <div class="course-body">
+        <span class="course-tag tag-blue">Cloud</span>
+        <h3>AWS Cloud Practitioner</h3>
+        <div class="course-meta">👤 Ravi Sharma &nbsp;·&nbsp; 38 lessons &nbsp;·&nbsp; ⭐ 4.8</div>
+        <div class="course-meta">🕒 22h &nbsp;·&nbsp; Intermediate</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹2,999</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Mobile" data-level="Intermediate">
+      <div class="course-thumb" style="background:#FFF0F0;">📲</div>
+      <div class="course-body">
+        <span class="course-tag tag-orange">Mobile</span>
+        <h3>Flutter App Development</h3>
+        <div class="course-meta">👤 Anika Patel &nbsp;·&nbsp; 44 lessons &nbsp;·&nbsp; ⭐ 4.7</div>
+        <div class="course-meta">🕒 26h &nbsp;·&nbsp; Intermediate</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹1,799</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Data Science" data-level="Advanced">
+      <div class="course-thumb" style="background:#F3F0FF;">🤖</div>
+      <div class="course-body">
+        <span class="course-tag tag-purple">Data Science</span>
+        <h3>Machine Learning with Python</h3>
+        <div class="course-meta">👤 Dr. Suresh K &nbsp;·&nbsp; 56 lessons &nbsp;·&nbsp; ⭐ 5.0</div>
+        <div class="course-meta">🕒 35h &nbsp;·&nbsp; Advanced</div>
+      </div>
+      <div class="course-footer"><span class="course-price">₹3,499</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+    <div class="course-card" data-cat="Web Development" data-level="Beginner">
+      <div class="course-thumb" style="background:#FFF7ED;">🌐</div>
+      <div class="course-body">
+        <span class="course-tag tag-orange">Web Development</span>
+        <h3>HTML & CSS for Beginners</h3>
+        <div class="course-meta">👤 Kavya Menon &nbsp;·&nbsp; 20 lessons &nbsp;·&nbsp; ⭐ 4.5</div>
+        <div class="course-meta">🕒 10h &nbsp;·&nbsp; Beginner</div>
+      </div>
+      <div class="course-footer"><span class="course-price free">FREE</span><a href="course-details.html" class="btn btn-primary btn-sm">View Course</a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>© 2026 StudySync. Built for students who keep up.</footer>
+
+<script>
+const search = document.getElementById('searchInput');
+const cat = document.getElementById('catFilter');
+const level = document.getElementById('levelFilter');
+const cards = document.querySelectorAll('.course-card');
+const label = document.getElementById('countLabel');
+
+function filter(){
+  let vis=0;
+  cards.forEach(c=>{
+    const text = c.innerText.toLowerCase();
+    const s = search.value.toLowerCase();
+    const catVal = cat.value;
+    const lvlVal = level.value;
+    const show = (!s||text.includes(s)) && (!catVal||c.dataset.cat===catVal) && (!lvlVal||c.dataset.level===lvlVal);
+    c.style.display = show ? '' : 'none';
+    if(show) vis++;
+  });
+  label.textContent = `Showing ${vis} courses`;
+}
+search.addEventListener('input', filter);
+cat.addEventListener('change', filter);
+level.addEventListener('change', filter);
+</script>
+</body></html>
