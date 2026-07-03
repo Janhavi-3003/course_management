@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>StudySync — Progress</title><link rel="stylesheet" href="css/style.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script></head><body>
+<nav class="navbar"><a href="index.html" class="logo"><span class="logo-badge">S</span>StudySync</a><div class="navbar-right"><div class="avatar">A</div></div></nav>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-label">Main</div>
+    <a href="student-dashboard.html"><span class="s-icon">🏠</span> Dashboard</a>
+    <a href="browse-courses.html"><span class="s-icon">📚</span> Browse Courses</a>
+    <a href="my-courses.html"><span class="s-icon">📖</span> My Courses</a>
+    <a href="progress.html" class="active"><span class="s-icon">📊</span> Progress</a>
+    <div class="sidebar-label">Account</div>
+    <a href="notifications.html"><span class="s-icon">🔔</span> Notifications</a>
+    <a href="certificate.html"><span class="s-icon">🏆</span> Certificates</a>
+  </aside>
+  <main class="main-content">
+    <h1 style="font-size:22px;margin-bottom:24px;">My Progress</h1>
+    <div class="stats-grid" style="margin-bottom:24px;">
+      <div class="stat-card"><span class="stat-icon">📅</span><span class="stat-label">Day Streak</span><span class="stat-val">5 🔥</span></div>
+      <div class="stat-card"><span class="stat-icon">⏱️</span><span class="stat-label">Total Hours</span><span class="stat-val">47h</span></div>
+      <div class="stat-card"><span class="stat-icon">📝</span><span class="stat-label">Lessons Done</span><span class="stat-val">112</span></div>
+      <div class="stat-card"><span class="stat-icon">🏆</span><span class="stat-label">Certificates</span><span class="stat-val">3</span></div>
+    </div>
+    <div class="charts-row" style="margin-bottom:24px;">
+      <div class="chart-card"><h4>📈 Monthly Hours</h4><div class="chart-wrap" style="height:200px;"><canvas id="monthlyHours"></canvas></div></div>
+      <div class="chart-card"><h4>📚 Subjects Breakdown</h4><div class="chart-wrap" style="height:200px;display:flex;align-items:center;justify-content:center;"><canvas id="subjectChart"></canvas></div></div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:16px;margin-bottom:16px;">Course-by-Course Progress</h4>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>Full Stack Web Dev</strong></span><span style="color:var(--primary);">72%</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill" style="width:72%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>Python for Data Science</strong></span><span style="color:var(--success);">45%</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill green" style="width:45%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>UI/UX Design</strong></span><span style="color:var(--orange);">90%</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill orange" style="width:90%"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>React JS</strong></span><span style="color:var(--success);">100% ✓</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill" style="width:100%;background:var(--success)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>SQL Basics</strong></span><span style="color:var(--success);">100% ✓</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill" style="width:100%;background:var(--success)"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:14px;"><span><strong>AWS Cloud</strong></span><span style="color:var(--text-muted);">20%</span></div><div class="progress-bar" style="height:10px;"><div class="progress-fill" style="width:20%"></div></div></div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+new Chart(document.getElementById('monthlyHours'),{type:'line',data:{labels:['Jan','Feb','Mar','Apr','May','Jun'],datasets:[{label:'Hours',data:[12,18,15,22,30,47],borderColor:'#0A66C2',backgroundColor:'rgba(10,102,194,0.1)',fill:true,tension:0.4,borderWidth:2,pointBackgroundColor:'#0A66C2'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>v+'h',font:{size:11}},grid:{color:'#F0F0F0'}},x:{grid:{display:false},ticks:{font:{size:11}}}}}});
+new Chart(document.getElementById('subjectChart'),{type:'pie',data:{labels:['Web Dev','Data Science','Design','Cloud'],datasets:[{data:[35,20,25,20],backgroundColor:['#0A66C2','#0F9D58','#EA580C','#7C3AED'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});
+</script>
+<footer>© 2026 StudySync.</footer></body></html>
