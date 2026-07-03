@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudySync — Admin Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="logo"><span class="logo-badge">S</span>StudySync</a>
+  <a href="role.html" class="back-link">← Back</a>
+</nav>
+
+<div class="page-center">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="logo-badge">S</div>
+      <h2>Admin Login</h2>
+      <p>Manage courses, enrollments & students</p>
+    </div>
+
+    <div id="login-banner" class="banner bad"></div>
+
+    <form id="admin-login-form" novalidate>
+      <div class="field" id="field-adminId">
+        <label for="adminId">Admin ID</label>
+        <input type="text" id="adminId" name="adminId" placeholder="e.g. ADM-1042">
+        <p class="error-msg">Enter your admin ID.</p>
+      </div>
+
+      <div class="field" id="field-password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Your password">
+        <p class="error-msg">Enter your password.</p>
+      </div>
+
+      <button type="submit" class="btn btn-solid btn-block" id="login-submit">Sign In as Admin</button>
+    </form>
+
+    <p class="form-foot">Don't have admin access? Contact your institution.</p>
+  </div>
+</div>
+
+<footer>© 2026 StudySync. Built for students who keep up.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
