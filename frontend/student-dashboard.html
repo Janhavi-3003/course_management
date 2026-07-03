@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudySync — Student Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html" class="logo"><span class="logo-badge">S</span>StudySync</a>
+  <div class="navbar-right">
+    <a href="notifications.html" class="nav-icon-btn">🔔<span class="badge"></span></a>
+    <div class="avatar">A</div>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-label">Main</div>
+    <a href="student-dashboard.html" class="active"><span class="s-icon">🏠</span> Dashboard</a>
+    <a href="browse-courses.html"><span class="s-icon">📚</span> Browse Courses</a>
+    <a href="my-courses.html"><span class="s-icon">📖</span> My Courses</a>
+    <a href="progress.html"><span class="s-icon">📊</span> Progress</a>
+    <div class="sidebar-label">Account</div>
+    <a href="notifications.html"><span class="s-icon">🔔</span> Notifications</a>
+    <a href="certificate.html"><span class="s-icon">🏆</span> Certificates</a>
+    <a href="student_login.html"><span class="s-icon">🚪</span> Sign Out</a>
+  </aside>
+
+  <main class="main-content">
+    <div style="margin-bottom:24px;">
+      <h1 style="font-size:22px;">Good morning, Asha 👋</h1>
+      <p style="color:var(--text-muted);font-size:14px;margin-top:4px;">You're on a 5-day streak! Keep it up.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card"><span class="stat-icon">📚</span><span class="stat-label">Enrolled</span><span class="stat-val">6</span><span class="stat-sub">+1 this week</span></div>
+      <div class="stat-card"><span class="stat-icon">✅</span><span class="stat-label">Completed</span><span class="stat-val">3</span><span class="stat-sub">50% rate</span></div>
+      <div class="stat-card"><span class="stat-icon">⏱️</span><span class="stat-label">Hours Learned</span><span class="stat-val">47</span><span class="stat-sub">+3 today</span></div>
+      <div class="stat-card"><span class="stat-icon">🔥</span><span class="stat-label">Day Streak</span><span class="stat-val">5</span><span class="stat-sub">Personal best!</span></div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts-row">
+      <div class="chart-card">
+        <h4>📈 Weekly Learning Hours</h4>
+        <div class="chart-wrap" style="height:220px;"><canvas id="weeklyChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h4>🎯 Course Status</h4>
+        <div class="chart-wrap" style="height:220px;display:flex;align-items:center;justify-content:center;"><canvas id="donutChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Daily Progress -->
+    <div class="chart-card" style="margin-bottom:24px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h4>📅 Daily Progress — Last 30 Days</h4>
+        <span style="font-size:13px;color:var(--text-muted);">Goal: <strong style="color:var(--primary);">2 hrs/day</strong></span>
+      </div>
+      <div class="chart-wrap" style="height:180px;"><canvas id="monthChart"></canvas></div>
+    </div>
+
+    <!-- Course progress table -->
+    <div class="card" style="margin-bottom:24px;">
+      <div class="section-head"><h4 style="font-size:16px;">All Courses Progress</h4><a href="progress.html" class="btn btn-ghost btn-sm">Details →</a></div>
+      <table class="table">
+        <thead><tr><th>Course</th><th>Progress</th><th>Status</th><th>Last Active</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Full Stack Web Dev</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill" style="width:72%"></div></div><span style="font-size:12px;color:var(--text-muted);"> 72%</span></td><td><span class="pill pill-primary">In Progress</span></td><td style="color:var(--text-muted);font-size:13px;">Today</td></tr>
+          <tr><td><strong>Python for Data Science</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill green" style="width:45%"></div></div><span style="font-size:12px;color:var(--text-muted);"> 45%</span></td><td><span class="pill pill-primary">In Progress</span></td><td style="color:var(--text-muted);font-size:13px;">Yesterday</td></tr>
+          <tr><td><strong>UI/UX Design</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill orange" style="width:90%"></div></div><span style="font-size:12px;color:var(--text-muted);"> 90%</span></td><td><span class="pill pill-warn">Almost Done</span></td><td style="color:var(--text-muted);font-size:13px;">2 days ago</td></tr>
+          <tr><td><strong>React JS</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill" style="width:100%;background:var(--success)"></div></div><span style="font-size:12px;color:var(--text-muted);"> 100%</span></td><td><span class="pill pill-success">Completed ✓</span></td><td style="color:var(--text-muted);font-size:13px;">Last week</td></tr>
+          <tr><td><strong>SQL Basics</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill" style="width:100%;background:var(--success)"></div></div><span style="font-size:12px;color:var(--text-muted);"> 100%</span></td><td><span class="pill pill-success">Completed ✓</span></td><td style="color:var(--text-muted);font-size:13px;">2 weeks ago</td></tr>
+          <tr><td><strong>AWS Cloud</strong></td><td><div class="progress-bar" style="width:180px"><div class="progress-fill" style="width:20%"></div></div><span style="font-size:12px;color:var(--text-muted);"> 20%</span></td><td><span class="pill" style="background:var(--border);color:var(--text-muted);">Not Started</span></td><td style="color:var(--text-muted);font-size:13px;">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script>
+new Chart(document.getElementById('weeklyChart'),{type:'bar',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],datasets:[{label:'Hours',data:[1.5,2.3,1.0,2.8,3.0,0.5,1.2],backgroundColor:(ctx)=>ctx.dataIndex===4?'#0A66C2':'#BBD6F2',borderRadius:5},{label:'Goal',data:[2,2,2,2,2,2,2],type:'line',borderColor:'#F4A400',borderDash:[5,4],pointRadius:0,borderWidth:2,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{max:4,ticks:{callback:v=>v+'h',font:{size:11}},grid:{color:'#F0F0F0'}},x:{ticks:{font:{size:12}},grid:{display:false}}}}});
+
+new Chart(document.getElementById('donutChart'),{type:'doughnut',data:{labels:['Completed','In Progress','Not Started'],datasets:[{data:[3,2,1],backgroundColor:['#0F9D58','#0A66C2','#DCE2E8'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{position:'bottom',labels:{font:{size:11},padding:10}}}}});
+
+const days=Array.from({length:30},(_,i)=>`${i+1}`);
+const hrs=Array.from({length:30},()=>+(Math.random()*3.5).toFixed(1));
+new Chart(document.getElementById('monthChart'),{type:'bar',data:{labels:days,datasets:[{label:'Hours',data:hrs,backgroundColor:hrs.map(h=>h>=2?'#0A66C2':'#BBD6F2'),borderRadius:3},{label:'Goal',data:Array(30).fill(2),type:'line',borderColor:'#F4A400',borderDash:[4,3],pointRadius:0,borderWidth:2,fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{font:{size:11}}}},scales:{y:{max:4,ticks:{callback:v=>v+'h',font:{size:10}},grid:{color:'#F0F0F0'}},x:{ticks:{font:{size:9},maxRotation:0},grid:{display:false}}}}});
+</script>
+</body></html>
