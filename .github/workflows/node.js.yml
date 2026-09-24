@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: frontend
+        working-directory: react-app
 
     steps:
       - name: Get source code
