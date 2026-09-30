@@ -1,0 +1,130 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "courseName": "Python and Java Programming",
+      "courseCode": "CS-101",
+      "instructor": "Dr. Anu",
+      "duration": "8 Weeks",
+      "level": "Beginner to Advanced",
+      "category": "Software Development",
+      "image": "https://cdn-icons-png.flaticon.com/512/5968/5968350.png",
+      "status": "Active",
+      "overview": "Learn how to build, test, and connect real-world applications using both Python and Java.",
+      "learningOutcomes": [
+        "Write clean Python and Java code",
+        "Test and debug software effectively",
+        "Connect Python scripts with Java programs",
+        "Build complete backend applications"
+      ],
+      "modules": [
+        "Python & Java Basics",
+        "Object-Oriented Programming (OOP)",
+        "Software Testing & Bug Fixing",
+        "Database Connections & APIs",
+        "Final Capstone Project"
+      ]
+    },
+    {
+      "id": "2",
+      "courseName": "Computer Vision & AI",
+      "courseCode": "CS-204",
+      "instructor": "Dr. Priya",
+      "duration": "10 Weeks",
+      "level": "Intermediate",
+      "category": "Artificial Intelligence",
+      "image": "https://cdn-icons-png.flaticon.com/512/4712/4712027.png",
+      "status": "Active",
+      "overview": "Teach computers how to see, recognize faces, and detect objects in images and live videos.",
+      "learningOutcomes": [
+        "Read, resize, and edit images using code",
+        "Detect faces and track moving objects",
+        "Work with live camera video feeds",
+        "Build and test basic AI vision models"
+      ],
+      "modules": [
+        "Introduction to Images and Pixels",
+        "Image Filters and Edge Detection",
+        "Face & Object Detection",
+        "Working with Live Video Feeds",
+        "Hands-On Vision AI Project"
+      ]
+    },
+    {
+      "id": "3",
+      "courseName": "Arduino & Robotics Lab",
+      "courseCode": "CS-309",
+      "instructor": "Dr. Anika",
+      "duration": "6 Weeks",
+      "level": "Beginner",
+      "category": "Robotics & Hardware",
+      "image": "https://cdn-icons-png.flaticon.com/512/1006/1006363.png",
+      "status": "Active",
+      "overview": "Build and program your own small robot that can automatically follow a line on the ground and avoid obstacles.",
+      "learningOutcomes": [
+        "Connect sensors and motors to an Arduino board",
+        "Write code to control wheel speed and direction",
+        "Use infrared and ultrasonic distance sensors",
+        "Assemble and test a fully working robot"
+      ],
+      "modules": [
+        "Introduction to Arduino & Circuits",
+        "Reading Data from Sensors",
+        "Controlling DC Motors & Wheels",
+        "Line-Following Navigation Logic",
+        "Robot Assembly & Track Test"
+      ]
+    },
+    {
+      "courseCode": "CS - 204",
+      "category": "Cloud Computing",
+      "courseName": "Azure Blob Storage",
+      "instructor": "Dr. Kiruthiga",
+      "duration": "8 Weeks",
+      "level": "Advanced",
+      "overview": "Learn how to store, manage, and access massive amounts of unstructured data in the cloud using Microsoft Azure Blob Storage.",
+      "image": "https://cdn-icons-png.flaticon.com/512/873/873107.png",
+      "modules": [
+        "Cloud Storage Concepts",
+        "Storage Accounts & Containers",
+        "Uploading & Managing Blobs",
+        "Access Security & SAS Tokens",
+        "Hands-On Cloud Storage Lab"
+      ],
+      "status": "Active",
+      "id": "Jdu_XC-"
+    }
+  ],
+  "students": [],
+  "enrolledTracks": [
+    {
+      "courseId": "Jdu_XC-",
+      "studentId": "E24AI003",
+      "id": 1,
+      "completedModules": [
+        "Cloud Storage Concepts",
+        "Storage Accounts & Containers",
+        "Uploading & Managing Blobs",
+        "Access Security & SAS Tokens",
+        "Hands-On Cloud Storage Lab"
+      ],
+      "progress": 100,
+      "status": "completed"
+    },
+    {
+      "courseId": "3",
+      "studentId": "E24AI003",
+      "studentName": "Anika",
+      "rollNumber": "E24AI003",
+      "completedModules": [
+        "Introduction to Arduino & Circuits",
+        "Reading Data from Sensors"
+      ],
+      "progress": 40,
+      "enrolledAt": "2026-09-30T14:08:33.054Z",
+      "id": 2,
+      "status": "active"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
