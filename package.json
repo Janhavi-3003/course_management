@@ -1,0 +1,17 @@
+{
+  "name": "course-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StudySync Course Management - React + Express + MongoDB + Socket.IO",
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix react-frontend install && npm --prefix mockapi install",
+    "dev": "concurrently -n api,web -c blue,green \"npm --prefix backend run dev\" \"npm --prefix react-frontend run dev\"",
+    "dev:mock": "concurrently -n mock,web -c yellow,green \"npm --prefix mockapi start\" \"npm --prefix react-frontend run dev:mock\"",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend test",
+    "build": "npm --prefix react-frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

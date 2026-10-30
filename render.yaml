@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: coursemanagement-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install --omit=optional
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SEED_DEMO
+        value: "false"
+      - key: EXPOSE_RESET_TOKEN
+        value: "false"
