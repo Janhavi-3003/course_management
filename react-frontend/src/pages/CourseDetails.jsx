@@ -62,7 +62,8 @@ export default function CourseDetails() {
     } catch (err) { showToast(errMsg(err)); }
   };
 
-  const onMark = async (kind) => {
+  const onMark = async () => {
+    const kind = 'theory';
     try {
       const r = await api.recordProgress(course.id, { moduleId: activeId, kind });
       setEnrollment(r.enrollment);
@@ -80,9 +81,7 @@ export default function CourseDetails() {
           const cs = catStyle(c.category);
           const done = enrollment?.completedModules || [];
           const active = c.modules.find((m) => m.moduleId === activeId) || c.modules[0];
-          const doneParts = done.includes(active?.moduleId)
-            ? { photo: true, video: true, theory: true }
-            : (enrollment?.moduleProgress?.[active?.moduleId] || {});
+          const activeDone = done.includes(active?.moduleId);
           const complete = enrollment && enrollment.progress >= 100;
 
           const Header = (
@@ -119,7 +118,7 @@ export default function CourseDetails() {
                 </div>
                 <div className="content-layout">
                   <div className="card">
-                    {active && <ModulePlayer key={active.moduleId} module={active} done={doneParts} onMark={onMark} />}
+                    {active && <ModulePlayer key={active.moduleId} module={active} done={activeDone} onMark={onMark} />}
                   </div>
                   <div className="card">
                     <h3 style={{ fontSize: 16, marginBottom: 12 }}>Course Modules</h3>

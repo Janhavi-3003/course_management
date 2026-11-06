@@ -22,4 +22,4 @@ User 1───* Activity                           (hours per day)
 | certificates | student, course, code, issuedAt | code unique |
 | activities | student, date (YYYY-MM-DD), hours | unique {student, date} |
 
-A module counts as complete when its photo, video and theory parts are done. Course progress reaches 100% only when every module is complete, and then a certificate is issued.
+A module is a text lesson; it counts as complete when the student marks it as read. Course progress reaches 100% only when every module is complete, and then a certificate is issued.

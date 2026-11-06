@@ -114,7 +114,7 @@ export const recordProgress = async (courseId, { moduleId, kind }) => {
   const cur = { photo: false, video: false, theory: false, ...(mp[moduleId] || {}) };
   if (done.includes(moduleId) || cur[kind]) return { enrollment: norm(e), moduleDone: false, courseDone: false, certificate: null };
   cur[kind] = true; mp[moduleId] = cur;
-  const moduleDone = cur.photo && cur.video && cur.theory;
+  const moduleDone = !!cur.theory;
   if (moduleDone) done.push(moduleId);
   const courseDone = done.length >= course.modules.length;
   const total = course.modules.reduce((s, x) => s + x.lessons, 0);

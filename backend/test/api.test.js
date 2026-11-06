@@ -207,9 +207,20 @@ test("courses: public read, admin-only write, validation", async () => {
 
   const c = await api("POST", "/api/v1/courses", { token: tokens.admin, body: payload });
   assert.equal(c.status, 201);
-  assert.equal(c.body.course.modules.length, 5, "modules auto-generated");
+  assert.equal(c.body.course.modules.length, 3, "modules auto-generated");
   assert.equal(c.body.course.lessons, 10);
   const cid = c.body.course.id;
+
+  // admin-written text modules are stored as given; bad module content is rejected
+  const own = await api("POST", "/api/v1/courses", { token: tokens.admin, body: { ...payload, title: "Own Text Course", modules: [
+    { moduleId: "a1", title: "Intro", lessons: 2, theory: ["First paragraph.", "Second paragraph."] },
+    { moduleId: "a2", title: "Next", lessons: 3, theory: ["More text."] }
+  ] } });
+  assert.equal(own.status, 201);
+  assert.equal(own.body.course.lessons, 5);
+  assert.deepEqual(own.body.course.modules[0].theory, ["First paragraph.", "Second paragraph."]);
+  assert.equal((await api("POST", "/api/v1/courses", { token: tokens.admin, body: { ...payload, modules: [{ moduleId: "x", title: "", theory: [] }] } })).status, 400);
+  assert.equal((await api("DELETE", `/api/v1/courses/${own.body.course.id}`, { token: tokens.admin })).status, 200);
 
   const u = await api("PUT", `/api/v1/courses/${cid}`, { token: tokens.admin, body: { title: "Test Course v2", price: 0 } });
   assert.equal(u.status, 200);
@@ -246,10 +257,8 @@ test("enrollment -> module progress -> completion -> certificate; withdraw & re-
 
   let last;
   for (const [i, mod] of course.modules.entries()) {
-    for (const kind of ["photo", "video", "theory"]) {
-      last = await api("PATCH", `/api/v1/progress/${ids.course}/module`, { token: tokens.s1, body: { moduleId: mod.moduleId, kind } });
-      assert.equal(last.status, 200);
-    }
+    last = await api("PATCH", `/api/v1/progress/${ids.course}/module`, { token: tokens.s1, body: { moduleId: mod.moduleId, kind: "theory" } });
+    assert.equal(last.status, 200);
     assert.equal(last.body.moduleDone, true);
     if (i === 0) assert.ok(last.body.enrollment.progress > 0 && last.body.enrollment.progress < 100);
   }
@@ -258,7 +267,7 @@ test("enrollment -> module progress -> completion -> certificate; withdraw & re-
   assert.equal(last.body.enrollment.status, "Completed");
   assert.ok(last.body.certificate.code.startsWith("CM-"));
   // repeating is a no-op
-  const again = await api("PATCH", `/api/v1/progress/${ids.course}/module`, { token: tokens.s1, body: { moduleId: m1, kind: "photo" } });
+  const again = await api("PATCH", `/api/v1/progress/${ids.course}/module`, { token: tokens.s1, body: { moduleId: m1, kind: "theory" } });
   assert.equal(again.body.moduleDone, false);
 
   const list = await api("GET", "/api/v1/enrollments", { token: tokens.s1 });

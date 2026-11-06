@@ -10,12 +10,14 @@ function split(total, n) {
 function theoryFor(moduleTitle, courseTitle) {
   return [
     `${moduleTitle} is a core building block of ${courseTitle}. In this module you move from the big picture to hands-on practice, building small examples as you go.`,
-    `By the end you should be able to explain the key ideas, apply them in a short exercise, and see where they fit in the wider course. The module is complete once the photo, video and theory parts are all done.`
+    `Start by reading through the key ideas and the vocabulary used in this topic. Make short notes in your own words - explaining a concept simply is the best way to check that you understand it.`,
+    `Next, try a small exercise: apply what you just read to a tiny example of your own. Mistakes at this stage are useful, because they show exactly what to revisit.`,
+    `By the end you should be able to explain the key ideas, apply them in a short exercise, and see where they fit in the wider course. When you are comfortable, mark the module as read to move on.`
   ];
 }
 
 // Auto-generates module content for a course (used when an admin adds a course)
-function generateModules(courseTitle, totalLessons, count = 5) {
+function generateModules(courseTitle, totalLessons, count = 3) {
   const lessons = split(Math.max(totalLessons || count, count), count);
   return lessons.map((l, i) => {
     const name = NAMES[i % NAMES.length];

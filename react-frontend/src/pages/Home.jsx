@@ -53,7 +53,7 @@ export default function Home() {
         </div>
         <div className="features">
           <div className="feature-card"><div className="icon">📚</div><h3>Browse Courses</h3><p>Explore courses by subject, level, and instructor — find the right fit fast.</p></div>
-          <div className="feature-card"><div className="icon">✅</div><h3>Easy Enrollment</h3><p>Enroll in a course in a click, finish each module's photo, video and theory, and earn a certificate.</p></div>
+          <div className="feature-card"><div className="icon">✅</div><h3>Easy Enrollment</h3><p>Enroll in a course in a click, read each text module, and earn a certificate.</p></div>
           <div className="feature-card"><div className="icon">📊</div><h3>Track Progress</h3><p>Live dashboards, notifications and chat show exactly how far you've come.</p></div>
         </div>
       </section>

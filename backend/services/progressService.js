@@ -24,8 +24,8 @@ async function issueCertificate(studentId, courseId) {
   return Certificate.create({ student: studentId, course: courseId, code });
 }
 
-// Records one finished part (photo | video | theory) of a module.
-// A module is complete when all three parts are done; the course is complete when all modules are.
+// Records that a student read a module (kind "theory").
+// A module is complete once it is marked as read; the course is complete when all modules are.
 async function recordModuleProgress({ userId, course, moduleId, kind }) {
   const enrollment = await Enrollment.findOne({ student: userId, course: course._id });
   if (!enrollment || enrollment.status === "withdrawn") {
@@ -49,7 +49,7 @@ async function recordModuleProgress({ userId, course, moduleId, kind }) {
 
   current[kind] = true;
   moduleProgress[moduleId] = current;
-  const moduleDone = current.photo && current.video && current.theory;
+  const moduleDone = !!current.theory; // text-only modules: done once the student marks it as read
   if (moduleDone) completed.push(moduleId);
 
   const courseDone = completed.length >= course.modules.length;

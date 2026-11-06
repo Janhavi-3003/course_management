@@ -113,7 +113,7 @@ export const errMsg = (e) => {
 };
 
 // Module content for courses created in mock mode (the real backend generates its own)
-export const generateModules = (title, totalLessons, count = 5) => {
+export const generateModules = (title, totalLessons, count = 3) => {
   const names = ['Introduction', 'Core Concepts', 'Hands-on Practice', 'Advanced Topics', 'Final Project'];
   const icons = ['🚀', '📘', '🛠️', '🧠', '🏁'];
   const base = Math.floor(Math.max(totalLessons, count) / count);
@@ -126,7 +126,8 @@ export const generateModules = (title, totalLessons, count = 5) => {
     videoMinutes: 10,
     theory: [
       `${names[k % names.length]} is a key stage of ${title}. This module introduces the ideas you need before moving on.`,
-      'Work through the photo, video and theory tabs — the module is complete once all three are done.',
+      'Read through the key ideas, make short notes in your own words, then try a small exercise of your own.',
+      'When you are comfortable with the topic, mark the module as read to continue.',
     ],
   }));
 };

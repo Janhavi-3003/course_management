@@ -20,7 +20,12 @@ const fields = (optional) => {
     body("lessons").optional().isInt({ min: 1, max: 1000 }).withMessage("Lessons must be 1-1000").toInt(),
     body("rating").optional().isFloat({ min: 0, max: 5 }).withMessage("Rating must be 0-5").toFloat(),
     body("emoji").optional().isString().isLength({ max: 10 }).withMessage("Emoji is too long"),
-    body("modules").optional().isArray({ max: 50 }).withMessage("Modules must be an array")
+    body("modules").optional().isArray({ max: 50 }).withMessage("Modules must be an array"),
+    body("modules.*.moduleId").optional().isString().isLength({ min: 1, max: 40 }).withMessage("Invalid module id"),
+    body("modules.*.title").optional().isString().trim().isLength({ min: 1, max: 150 }).withMessage("Each module needs a title (max 150 characters)"),
+    body("modules.*.lessons").optional().isInt({ min: 1, max: 1000 }).withMessage("Module lessons must be 1-1000").toInt(),
+    body("modules.*.theory").optional().isArray({ max: 60 }).withMessage("Module text must be a list of paragraphs"),
+    body("modules.*.theory.*").optional().isString().isLength({ max: 5000 }).withMessage("A paragraph is too long (max 5000 characters)")
   ];
 };
 

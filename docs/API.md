@@ -17,7 +17,7 @@ Errors always look like `{ "success": false, "message": "..." }`.
 | GET/PUT | /profile | any | Own profile |
 | GET/POST | /enrollments | student | List / enroll `{courseId}` |
 | DELETE | /enrollments/:id | student | Withdraw |
-| PATCH | /progress/:courseId/module | student | `{moduleId, kind: photo|video|theory}` |
+| PATCH | /progress/:courseId/module | student | `{moduleId, kind: "theory"}` (marks the text module as read) |
 | GET | /certificates, /certificates/course/:courseId | student | Certificates |
 | GET | /activity?days=7 | student | Study hours |
 | GET | /admin/stats | admin | Totals |
